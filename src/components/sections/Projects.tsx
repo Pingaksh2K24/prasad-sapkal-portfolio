@@ -24,7 +24,7 @@ export default function Projects() {
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Here are some of the projects I've worked on that showcase my skills and experience.
+            Here are some of the projects I&apos;ve worked on that showcase my skills and experience.
           </p>
         </div>
 
@@ -159,7 +159,7 @@ export default function Projects() {
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Live Demo Not Available</h3>
                 
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  Due to some technical reasons, I'm unable to show you the live demo for this project at the moment. However, I'd be happy to give you a personal demonstration along with the complete code structure and architecture.
+                  Due to some technical reasons, I&apos;m unable to show you the live demo for this project at the moment. However, I&apos;d be happy to give you a personal demonstration along with the complete code structure and architecture.
                 </p>
                 
                 <button

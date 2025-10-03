@@ -9,16 +9,16 @@ export default function Contact() {
             Get In Touch
           </h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
+            I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
+            <h3 className="text-2xl font-semibold mb-6">Let&apos;s Connect</h3>
             <p className="text-gray-300 mb-8">
               Feel free to reach out if you have any questions, want to collaborate on a project, 
-              or just want to say hello. I'll do my best to get back to you!
+              or just want to say hello. I&apos;ll do my best to get back to you!
             </p>
             
             <div className="space-y-4">

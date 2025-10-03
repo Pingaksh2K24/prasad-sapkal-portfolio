@@ -35,7 +35,7 @@ export default function Footer() {
               </p>
               <p className="text-gray-300 leading-relaxed mb-6 text-lg">
                 Passionate about creating innovative digital solutions and bringing ideas to life through code. 
-                Always learning, always building, always pushing the boundaries of what's possible.
+                Always learning, always building, always pushing the boundaries of what&apos;s possible.
               </p>
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>

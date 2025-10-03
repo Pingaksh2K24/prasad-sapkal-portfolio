@@ -9,7 +9,7 @@ export default function About() {
             About Me
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            I'm a passionate software developer with a love for creating innovative solutions 
+            I&apos;m a passionate software developer with a love for creating innovative solutions 
             and bringing ideas to life through code.
           </p>
         </div>
@@ -18,12 +18,12 @@ export default function About() {
           <div>
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">My Journey</h3>
             <p className="text-gray-600 mb-4">
-              With years of experience in software development, I've worked on various projects 
+              With years of experience in software development, I&apos;ve worked on various projects 
               ranging from web applications to mobile apps. I enjoy solving complex problems 
               and learning new technologies.
             </p>
             <p className="text-gray-600">
-              When I'm not coding, you can find me exploring new technologies, contributing to 
+              When I&apos;m not coding, you can find me exploring new technologies, contributing to 
               open-source projects, or sharing knowledge with the developer community.
             </p>
           </div>
