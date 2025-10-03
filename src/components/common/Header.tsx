@@ -21,13 +21,24 @@ export default function Header() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
+        let maxRatio = 0;
+        let activeId = 'home';
+        
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+          if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+            maxRatio = entry.intersectionRatio;
+            activeId = entry.target.id;
           }
         });
+        
+        if (maxRatio > 0) {
+          setActiveSection(activeId);
+        }
       },
-      { threshold: 0.6, rootMargin: '-100px 0px -100px 0px' }
+      { 
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+        rootMargin: '-50px 0px -50px 0px'
+      }
     );
 
     const sections = ['home', 'about', 'projects', 'experience', 'contact'];
@@ -36,7 +47,27 @@ export default function Header() {
       if (element) observer.observe(element);
     });
 
-    return () => observer.disconnect();
+    // Fallback scroll listener for better detection
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'projects', 'experience', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (

@@ -24,6 +24,50 @@ export default function Experience() {
           </p>
         </div>
 
+        {/* Upcoming Opportunity Card */}
+        <div className="mb-12">
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl shadow-lg p-8 border-2 border-green-200 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-green-800">Open to New Opportunities</h3>
+                  <p className="text-green-600 font-medium">Available for Full-time Positions</p>
+                </div>
+              </div>
+              <div className="bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold text-sm">
+                Available Now
+              </div>
+            </div>
+            
+            <div className="space-y-4">
+              <p className="text-gray-700 leading-relaxed">
+                I&apos;m actively seeking new opportunities to contribute my expertise in full-stack development 
+                and technical leadership. With a proven track record of delivering scalable solutions and 
+                mentoring development teams, I&apos;m ready to drive innovation at your organization.
+              </p>
+              <div className="grid md:grid-cols-3 gap-4 mt-6">
+                <div className="bg-white rounded-lg p-4 border border-green-100">
+                  <div className="text-green-600 font-semibold text-sm mb-1">Preferred Role</div>
+                  <div className="text-gray-800 font-medium">Full Stack Developer</div>
+                </div>
+                <div className="bg-white rounded-lg p-4 border border-green-100">
+                  <div className="text-green-600 font-semibold text-sm mb-1">Work Mode</div>
+                  <div className="text-gray-800 font-medium">Remote / Hybrid / On-site</div>
+                </div>
+                <div className="bg-white rounded-lg p-4 border border-green-100">
+                  <div className="text-green-600 font-semibold text-sm mb-1">Notice Period</div>
+                  <div className="text-gray-800 font-medium">Immediate / Negotiable</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {experience.length === 0 ? (
           <div className="text-center py-16">
             <div className="bg-white rounded-2xl shadow-xl p-12 max-w-md mx-auto border border-gray-100">

@@ -4,20 +4,34 @@ import { personalInfo } from '@/data/portfolio';
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 pt-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+    <section id="home" className="min-h-screen flex items-center justify-center relative pt-20 overflow-hidden">
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover -z-20"
+      >
+        <source src="/video/hero6.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Video Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-indigo-900/60 to-purple-900/70 -z-10"></div>
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Background decoration */}
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-blue-200 rounded-full opacity-20 animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-16 h-16 bg-purple-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-indigo-200 rounded-full opacity-20 animate-pulse delay-500"></div>
+          <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full opacity-20 animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-16 h-16 bg-white/10 rounded-full opacity-20 animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-white/10 rounded-full opacity-20 animate-pulse delay-500"></div>
         </div>
         
         <div className="mb-12">
           {/* Passport size profile image */}
-          <div className="relative w-32 h-40 mx-auto mb-8">
+          <div className="relative w-36 h-44 mx-auto mb-8">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg blur-lg opacity-30 animate-pulse"></div>
-            <div className="relative w-full h-full rounded-lg bg-white shadow-2xl overflow-hidden border-4 border-white">
+            <div className="relative w-full h-full mt-8 rounded-lg bg-white shadow-2xl overflow-hidden border-4 border-white">
               <img
                 src={personalInfo.profileImage}
                 alt={personalInfo.name}
@@ -31,13 +45,13 @@ export default function Hero() {
           
           {/* Enhanced typography with gradient text */}
           <div className="space-y-6">
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mb-6">
               {personalInfo.name}
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-blue-600 mb-6">
+            <h2 className="text-2xl md:text-3xl font-semibold text-blue-300 mb-6">
               {personalInfo.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-10 leading-relaxed">
               {personalInfo.bio}
             </p>
           </div>
