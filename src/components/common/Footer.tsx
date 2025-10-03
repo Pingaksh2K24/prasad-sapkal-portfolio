@@ -63,6 +63,9 @@ export default function Footer() {
                     </span>
                   ))
                 )}
+                <span className="bg-gradient-to-r from-gray-800 to-gray-700 text-gray-300 px-3 py-1.5 rounded-full text-sm border border-gray-600 hover:border-blue-500 transition-colors duration-300">
+                  PostgreSQL
+                </span>
               </div>
             </div>
           </div>
