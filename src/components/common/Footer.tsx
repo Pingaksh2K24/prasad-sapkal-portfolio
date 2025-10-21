@@ -3,7 +3,7 @@ import { HomeIcon, UserIcon, RocketLaunchIcon, BriefcaseIcon, EnvelopeIcon, Chev
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white relative overflow-hidden">
+    <footer id="contact" className="bg-gradient-to-br from-slate-900 dark:from-slate-800 via-gray-900 dark:via-gray-800 to-black dark:to-gray-900 text-white relative overflow-hidden">
       {/* Enhanced Background decorations */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-900/10 via-purple-900/10 to-transparent"></div>
@@ -33,7 +33,7 @@ export default function Footer() {
               <p className="text-xl text-blue-400 font-medium mb-6">
                 {personalInfo.title}
               </p>
-              <p className="text-gray-300 leading-relaxed mb-6 text-lg">
+              <p className="text-gray-300 dark:text-gray-400 leading-relaxed mb-6 text-lg">
                 Passionate about creating innovative digital solutions and bringing ideas to life through code. 
                 Always learning, always building, always pushing the boundaries of what&apos;s possible.
               </p>
@@ -57,13 +57,13 @@ export default function Footer() {
                   skillGroup.items.slice(0, 4).map((skill, index) => (
                     <span
                       key={index}
-                      className="bg-gradient-to-r from-gray-800 to-gray-700 text-gray-300 px-3 py-1.5 rounded-full text-sm border border-gray-600 hover:border-blue-500 transition-colors duration-300"
+                      className="bg-gradient-to-r from-gray-800 dark:from-gray-700 to-gray-700 dark:to-gray-600 text-gray-300 dark:text-gray-400 px-3 py-1.5 rounded-full text-sm border border-gray-600 dark:border-gray-500 hover:border-blue-500 transition-colors duration-300"
                     >
                       {skill}
                     </span>
                   ))
                 )}
-                <span className="bg-gradient-to-r from-gray-800 to-gray-700 text-gray-300 px-3 py-1.5 rounded-full text-sm border border-gray-600 hover:border-blue-500 transition-colors duration-300">
+                <span className="bg-gradient-to-r from-gray-800 dark:from-gray-700 to-gray-700 dark:to-gray-600 text-gray-300 dark:text-gray-400 px-3 py-1.5 rounded-full text-sm border border-gray-600 dark:border-gray-500 hover:border-blue-500 transition-colors duration-300">
                   PostgreSQL
                 </span>
               </div>
@@ -89,7 +89,7 @@ export default function Footer() {
                 <a 
                   key={link.name}
                   href={link.href} 
-                  className="group flex items-center text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2"
+                  className="group flex items-center text-gray-300 dark:text-gray-400 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2"
                 >
                   <link.Icon className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
                   <span className="group-hover:text-white">{link.name}</span>
@@ -109,15 +109,15 @@ export default function Footer() {
             </h4>
             <div className="space-y-6">
               <div className="group">
-                <div className="flex items-center p-3 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-colors duration-300">
+                <div className="flex items-center p-3 rounded-lg bg-gray-800/50 dark:bg-gray-700/50 hover:bg-gray-700/50 dark:hover:bg-gray-600/50 transition-colors duration-300">
                   <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mr-3">
                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">Email</p>
-                    <a href={`mailto:${contact.email}`} className="text-gray-300 hover:text-blue-400 transition-colors duration-300 font-medium">
+                    <p className="text-gray-400 dark:text-gray-500 text-sm">Email</p>
+                    <a href={`mailto:${contact.email}`} className="text-gray-300 dark:text-gray-400 hover:text-blue-400 transition-colors duration-300 font-medium">
                       {contact.email}
                     </a>
                   </div>
@@ -125,15 +125,15 @@ export default function Footer() {
               </div>
               
               <div className="group">
-                <div className="flex items-center p-3 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-colors duration-300">
+                <div className="flex items-center p-3 rounded-lg bg-gray-800/50 dark:bg-gray-700/50 hover:bg-gray-700/50 dark:hover:bg-gray-600/50 transition-colors duration-300">
                   <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center mr-3">
                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">Phone</p>
-                    <a href={`tel:${contact.phone}`} className="text-gray-300 hover:text-blue-400 transition-colors duration-300 font-medium">
+                    <p className="text-gray-400 dark:text-gray-500 text-sm">Phone</p>
+                    <a href={`tel:${contact.phone}`} className="text-gray-300 dark:text-gray-400 hover:text-blue-400 transition-colors duration-300 font-medium">
                       {contact.phone}
                     </a>
                   </div>
@@ -142,7 +142,7 @@ export default function Footer() {
               
               {/* Enhanced Social Links */}
               <div>
-                <p className="text-gray-400 text-sm mb-3">Follow Me</p>
+                <p className="text-gray-400 dark:text-gray-500 text-sm mb-3">Follow Me</p>
                 <div className="flex space-x-3">
                   {contact.github && (
                     <a href={contact.github} target="_blank" rel="noopener noreferrer" className="group relative">
@@ -181,16 +181,16 @@ export default function Footer() {
         </div>
         
         {/* Enhanced Bottom Section */}
-        <div className="border-t border-gradient-to-r from-transparent via-gray-700 to-transparent pt-8">
+        <div className="border-t border-gradient-to-r from-transparent via-gray-700 dark:via-gray-600 to-transparent pt-8">
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
-              <p className="text-gray-400 flex items-center">
+              <p className="text-gray-400 dark:text-gray-500 flex items-center">
                 <svg className="w-4 h-4 mr-2 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
               </p>
-              <div className="flex items-center space-x-4 text-sm text-gray-500">
+              <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-600">
                 <span className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
                   Available for work
@@ -199,7 +199,7 @@ export default function Footer() {
                 <span>Made in India 🇮🇳</span>
               </div>
             </div>
-            <div className="flex items-center space-x-2 text-gray-500 text-sm">
+            <div className="flex items-center space-x-2 text-gray-500 dark:text-gray-600 text-sm">
               <svg className="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
               </svg>

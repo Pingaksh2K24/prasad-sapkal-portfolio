@@ -3,12 +3,29 @@
 import { useState, useEffect } from 'react';
 import { NAVIGATION_ITEMS } from '@/lib/constants';
 import { personalInfo } from '@/data/portfolio';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    
+    setIsDark(shouldBeDark);
+    document.documentElement.classList.toggle('dark', shouldBeDark);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    document.documentElement.classList.toggle('dark', newTheme);
+    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +65,7 @@ export default function Header() {
     });
 
     // Fallback scroll listener for better detection
-    const handleScroll = () => {
+    const handleScrollFallback = () => {
       const sections = ['home', 'about', 'projects', 'experience', 'contact'];
       const scrollPosition = window.scrollY + 100;
       
@@ -61,20 +78,20 @@ export default function Header() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    window.addEventListener('scroll', handleScrollFallback);
+    handleScrollFallback(); // Initial check
 
     return () => {
       observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScrollFallback);
     };
   }, []);
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200/50' 
-        : 'bg-white/80 backdrop-blur-md border-b border-gray-100/50'
+        ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg border-b border-gray-200/50 dark:border-gray-700/50' 
+        : 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100/50 dark:border-gray-800/50'
     }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
@@ -86,10 +103,10 @@ export default function Header() {
               </span>
             </div>
             <div>
-              <div className="text-xl font-bold bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
+              <div className="text-xl font-bold bg-gradient-to-r from-gray-900 dark:from-white to-blue-800 dark:to-blue-400 bg-clip-text text-transparent">
                 {personalInfo.name.split(' ')[0]}
               </div>
-              <div className="text-xs text-gray-500 font-medium">
+              <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">
                 {personalInfo.title}
               </div>
             </div>
@@ -109,8 +126,8 @@ export default function Header() {
                   }}
                   className={`relative px-4 py-2 transition-all duration-300 rounded-lg group ${
                     isActive 
-                      ? 'text-blue-600 bg-blue-50 font-medium' 
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                      ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400 font-medium' 
+                      : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20'
                   }`}
                 >
                   <span className="relative z-10">{item.name}</span>
@@ -120,6 +137,19 @@ export default function Header() {
                 </a>
               );
             })}
+            
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="ml-2 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 group"
+              aria-label="Toggle theme"
+            >
+              {isDark ? (
+                <SunIcon className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-yellow-500 transition-colors" />
+              ) : (
+                <MoonIcon className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 transition-colors" />
+              )}
+            </button>
             
             {/* CTA Button */}
             <a
@@ -134,22 +164,38 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Enhanced Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? (
-              <XMarkIcon className="w-6 h-6 text-gray-900" />
-            ) : (
-              <Bars3Icon className="w-6 h-6 text-gray-900" />
-            )}
-          </button>
+          {/* Mobile Controls */}
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Theme Toggle Mobile */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 group"
+              aria-label="Toggle theme"
+            >
+              {isDark ? (
+                <SunIcon className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-yellow-500 transition-colors" />
+              ) : (
+                <MoonIcon className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 transition-colors" />
+              )}
+            </button>
+            
+            {/* Mobile Menu Button */}
+            <button
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? (
+                <XMarkIcon className="w-6 h-6 text-gray-900 dark:text-gray-100" />
+              ) : (
+                <Bars3Icon className="w-6 h-6 text-gray-900 dark:text-gray-100" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Enhanced Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-gray-200/50 mt-4 pt-4">
+          <div className="md:hidden pb-4 border-t border-gray-200/50 dark:border-gray-700/50 mt-4 pt-4">
             <div className="space-y-2">
               {NAVIGATION_ITEMS.map((item) => {
                 const isActive = activeSection === item.href.substring(1);
@@ -164,8 +210,8 @@ export default function Header() {
                     }}
                     className={`block px-4 py-3 rounded-lg transition-all duration-300 ${
                       isActive 
-                        ? 'text-blue-600 bg-blue-50 font-medium' 
-                        : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                        ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400 font-medium' 
+                        : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20'
                     }`}
                   >
                     {item.name}

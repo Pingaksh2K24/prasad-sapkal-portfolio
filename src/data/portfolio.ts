@@ -2,8 +2,8 @@ import { Project, Experience, Skill, Contact } from '@/types';
 
 export const personalInfo = {
   name: "Prasad Sapkal",
-  title: "Full Stack Developer",
-  bio: "Passionate full stack developer with expertise in modern web technologies and a love for creating innovative digital solutions.",
+  title: "React Js Full Stack Developer",
+  bio: "Passionate react Js full stack developer with expertise in modern web technologies and a love for creating innovative digital solutions.",
   profileImage: "/images/profile/prasad-sapkal.jpeg"
 };
 
@@ -40,9 +40,9 @@ export const projects: Project[] = [
 export const experience: Experience[] = [
   {
     id: "1",
-    company: "Silent Infotech",
-    position: "Assistant Technical Lead",
-    duration: "January 2025 - July 2025",
+    company: "Siddhivinayak Technolabs",
+    position: "Sr. Software Developer",
+    duration: "December 2024 - Peresent",
     description: [
       "Assisted and guided team members in development tasks and technical decisions",
       "Contributed to project architecture design for React Native applications",
