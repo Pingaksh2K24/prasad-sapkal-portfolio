@@ -1,3 +1,5 @@
+'use client';
+
 import { personalInfo, contact, skills } from '@/data/portfolio';
 import { HomeIcon, UserIcon, RocketLaunchIcon, BriefcaseIcon, EnvelopeIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
@@ -86,10 +88,14 @@ export default function Footer() {
                 { name: 'Experience', href: '#experience', Icon: BriefcaseIcon },
                 { name: 'Contact', href: '#contact', Icon: EnvelopeIcon }
               ].map((link) => (
-                <a 
+                <a
                   key={link.name}
-                  href={link.href} 
-                  className="group flex items-center text-gray-300 dark:text-gray-400 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2"
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="group flex items-center text-gray-300 dark:text-gray-400 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2 cursor-pointer"
                 >
                   <link.Icon className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
                   <span className="group-hover:text-white">{link.name}</span>
